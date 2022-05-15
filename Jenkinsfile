@@ -5,13 +5,15 @@ pipeline {
         stage('Build') {
             steps {
 				echo 'Building..'
-                sh 'docker-compose build -t builder:latest . -f /Docker-build'
+                sh 'docker build -t builder:latest . -f /Docker-build'
+				
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-				sh 'docker-compose build -t tester:latest . -f /Docker-test'
+				sh 'docker build -t tester:latest . -f /Docker-test'
+				
             }
         }
         stage('Deploy') {
