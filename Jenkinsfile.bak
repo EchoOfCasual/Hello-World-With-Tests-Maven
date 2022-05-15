@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-				echo 'Building..'
                 sh 'docker-compose build -t builder:latest . -f /Docker-build'
             }
         }
