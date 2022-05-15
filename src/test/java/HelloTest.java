@@ -26,5 +26,6 @@ public class HelloTest {
         hello.main(null);
         assertEquals("Hello world!", outContent.toString());
 
+
     }
 }
