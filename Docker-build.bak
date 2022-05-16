@@ -8,4 +8,9 @@ RUN apt-get -y install maven
 
 RUN apt-get -y install default-jdk
 
-CMD ["sh", "-c", "mvn -f inputVol/Hello-World-With-Tests-Maven/ package &&  cp ./inputVol/Hello-World-With-Tests-Maven/target/SimpleApp.jar ./outputVol/"]
+
+WORKDIR inputVol/Hello-World-With-Tests-Maven
+RUN mvn package
+
+WORKDIR target
+RUN ["cp",  "SimpleApp-1.0-SNAPSHOT-shaded.jar", "../../../outputVol/"]
