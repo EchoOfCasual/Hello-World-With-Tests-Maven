@@ -14,15 +14,6 @@ pipeline {
 			}
 		
 		}
-		stage('Dependencies'){
-			steps {
-				echo 'Preparing dependencies image..'
-				
-                sh 'docker build -t dependencies:latest . -f /var/jenkins_home/workspace/PiplineForDevOps/Docker-dependencies'
-				sh 'docker run --mount source=vol-in,destination=/inputVol dependencies:latest'
-			}
-
-		}
         stage('Build') {
             steps {
 				echo 'Building..'
