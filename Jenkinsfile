@@ -8,7 +8,7 @@ pipeline {
 				
 				sh 'docker volume create vol-in'
 				sh 'docker volume create vol-out'
-				sh 'docker run --mount source=vol-in,destination=/inputVol --mount source=vol-out,destination=/outputVol builder:latest'
+				
                 sh 'docker build -t cloner:latest . -f /var/jenkins_home/workspace/PiplineForDevOps/Docker-clone'
 				sh 'docker run --mount source=vol-in,destination=/inputVol cloner:latest'
 			}
