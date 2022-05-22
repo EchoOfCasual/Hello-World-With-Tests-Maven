@@ -14,7 +14,15 @@ pipeline {
 			}
 		
 		}
-		
+		stage('Dependencies'){
+			steps {
+				echo 'Preparing dependencies image..'
+				
+                sh 'docker build -t dependencies:latest . -f /var/jenkins_home/workspace/PiplineForDevOps/Docker-dependencies'
+				sh 'docker run --mount source=vol-in,destination=/inputVol dependencies:latest'
+			}
+
+		}
         stage('Build') {
             steps {
 				echo 'Building..'
@@ -33,7 +41,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying..'
+				
+				sh 'docker build -t deployer:latest . -f /var/jenkins_home/workspace/PiplineForDevOps/Docker-deploy'
+				sh 'docker run --mount source=vol-in,destination=/inputVol --mount source=vol-out,destination=/outputVol deployer:latest'
             }
         }
     }

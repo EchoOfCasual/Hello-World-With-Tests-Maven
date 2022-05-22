@@ -1,0 +1,3 @@
+FROM dependencies:latest
+
+CMD ["sh", "-c", "mvn -f outputVol/SimpleApp.jar run"]
