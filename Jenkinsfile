@@ -6,6 +6,8 @@ pipeline {
 			steps {
 				echo 'Cloning.. And setting up voulumes..'
 				
+				sh 'docker system prune --all -f'
+				
 				sh 'docker volume create vol-in'
 				sh 'docker volume create vol-out'
 				
