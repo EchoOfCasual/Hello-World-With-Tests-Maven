@@ -59,7 +59,7 @@ pipeline {
                          archiveArtifacts artifacts: 'artifact/SimpleApp-${version}.jar'
 						}
 						else{
-						 echo 'Pipeline finished work sucessfully but new version wasn't published.'
+						 echo 'Pipeline finished work sucessfully but new version wasn\'t published.'
 						}
 					
 					

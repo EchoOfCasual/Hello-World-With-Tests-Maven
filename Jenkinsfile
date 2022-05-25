@@ -2,8 +2,8 @@ pipeline {
     agent any
 	
 	parameters{
-		string(name:"version",defaultValue:"1.0.0", description:"The version of artifact")
-		booleanParam(name:"promote",defaultValue: false, description:"Publish new version")
+		string(name:'version',defaultValue:'1.0.0', description:'The version of artifact')
+		booleanParam(name:'promote',defaultValue: false, description:'Publish new version')
 	}
 
     stages {
