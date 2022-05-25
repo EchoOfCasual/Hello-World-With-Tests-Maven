@@ -54,8 +54,8 @@ pipeline {
             steps {
                 echo 'Publishing..'
 					script{
-						if(parameters.promote){
-						 sh 'mv ./artifact/SimpleApp.jar ./artifact/SimpleApp-${version}.jar'
+						if(params.promote){
+						 sh 'mv ./artifacts/SimpleApp.jar ./artifacts/SimpleApp-${version}.jar'
                          archiveArtifacts artifacts: 'artifact/SimpleApp-${version}.jar'
 						}
 						else{
