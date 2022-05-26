@@ -55,8 +55,8 @@ pipeline {
                 echo 'Publishing..'
 					script{
 						if(params.promote){
-						 sh 'mv ./artifacts/SimpleApp.jar ./artifacts/SimpleApp-${version}.jar'
-                         archiveArtifacts artifacts: 'artifacts/SimpleApp-${version}.jar'
+						 sh 'mv ./artifacts/SimpleApp.jar ./artifacts/SimpleApp-${params.version}.jar'
+                         archiveArtifacts artifacts: 'artifacts/SimpleApp-${params.version}.jar'
 						}
 						else{
 						 echo 'Pipeline finished work sucessfully but new version wasn\'t published.'
